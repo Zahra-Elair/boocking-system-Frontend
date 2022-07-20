@@ -1,0 +1,151 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Projects</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Projects</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <!-- Default box -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Projects</h3>
+
+            <div class="card-tools">
+              <div class="input-group">
+                <input
+                  type="text"
+                  name="table_search"
+                  class="form-control float-right"
+                  placeholder="Search"
+                />
+
+                <div class="input-group-append">
+                  <button class="btn btn-default">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- /.card-tools -->
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body p-0">
+            <table class="table table-striped projects">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Project Name</th>
+                  <th>Description</th>
+                  <th>Status</th>
+                  <th>Client Company</th>
+                  <th>Project Leader</th>
+                  <th>Estimated Budget</th>
+                  <th>Spent Budget</th>
+                  <th>Estimated Duration</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let project of projects">
+                  <td>{{ project.id }}</td>
+                  <td>{{ project.projectName }}</td>
+                  <td>{{ project.description }}</td>
+                  <td>{{ project.status }}</td>
+                  <td>{{ project.clientCompany }}</td>
+                  <td>{{ project.projectLeader }}</td>
+                  <td>{{ project.estimatedBudget }}</td>
+                  <td>{{ project.spentBudget }}</td>
+                  <td>{{ project.estimatedDuration }}</td>
+                  <td>
+                    <a class="btn btn-primary btn-sm" href="#">
+                      <i class="fas fa-folder"> </i>
+                      View
+                    </a>
+                    <a class="btn btn-info btn-sm" href="#">
+                      <i class="fas fa-pencil-alt"> </i>
+                      Edit
+                    </a>
+                    <a class="btn btn-danger btn-sm" href="#">
+                      <i class="fas fa-trash"> </i>
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+
+          <div class="card-footer clearfix">
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <select
+                    class="form-control custom-select"
+                    style="width: auto"
+                    [(ngModel)]="pageSize"
+                    (ngModelChange)="refreshProjects()"
+                  >
+                    <option *ngFor="let size of [10, 20, 30]" [ngValue]="size">
+                      {{ size }} Items
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <!-- /.col -->
+              <div class="col-6">
+                <ul class="pagination m-0 float-right">
+                  <li class="page-item">
+                    <a class="page-link" (click)="firstPage()">First</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" (click)="previousPage()">Previous</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item">
+                    <a class="page-link" (click)="nextPage()">Next</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" (click)="lastPage()">Last</a>
+                  </li>
+                </ul>
+                <ngb-pagination
+                  [(page)]="page"
+                  [pageSize]="pageSize"
+                  [collectionSize]="collectionSize"
+                  (pageChange)="refreshProjects()"
+                  [boundaryLinks]="true"
+                ></ngb-pagination>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.card-footer -->
+        </div>
+        <!-- /.card -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container-fluid -->
+</section>
+<!-- /.content -->
