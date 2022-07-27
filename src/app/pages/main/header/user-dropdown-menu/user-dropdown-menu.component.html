@@ -1,0 +1,21 @@
+<li class="nav-item dropdown user-menu">
+  <a
+    class="nav-link dropdown-toggle"
+    data-toggle="dropdown"
+    (click)="toggleDropdownMenu()"
+  >
+  <i class="fa fa-user-circle" aria-hidden="true"></i>
+  </a>
+  <ul #dropdownMenu class="dropdown-menu dropdown-menu dropdown-menu-right">
+    <!-- User image -->
+    
+    
+    <!-- Menu Footer-->
+    <li class="user-footer">
+
+      <a (click)="logout()" class="btn btn-default "
+        >Sign out</a
+      >
+    </li>
+  </ul>
+</li>

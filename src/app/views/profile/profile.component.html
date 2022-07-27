@@ -1,0 +1,97 @@
+<section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="home">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="home/profile">Profile</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-2">
+      </div>
+      <div class="col-lg-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Matricule RH</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{user.matriculeRH}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">SAP-ID</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{user.sapid}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Nom</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{user.nom}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Prenom</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{user.prenom}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Service</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{user.service}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{user.email}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Telephone</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{user.tel}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"></p>
+              </div>
+            </div>
+            <hr>
+            <button [routerLink]="['/home/update']" type="button" class="btn btn-primary">Modifier</button>
+          </div>
+        </div>
+    
+           </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,115 @@
+<aside #mainSidebar class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <a [routerLink]="['/home']" class="brand-link">
+    
+    <span class="brand-text font-weight-light">LEONI</span>
+  </a>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <img
+          src="assets/img/icon.jpeg"
+          class="img-circle elevation-2"
+          alt="User Image"
+        />
+      </div>
+      <div class="info">
+        <a [routerLink]="['/home/profile']" class="d-block">{{user.prenom}} {{user.nom}}</a>
+      </div>
+    </div>
+
+    <!-- SidebarSearch Form -->
+   
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+        with font-awesome or any other icon font library -->
+        
+        <li class="nav-header">MENU</li>
+        <li class="nav-item">
+          <a [routerLink]="['/home']" class="nav-link">
+            <span class="svg-icon">
+              <!--begin::Svg Icon | path:/metronic/theme/html/demo7/dist/assets/media/svg/icons/General/User.svg-->
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <polygon points="0 0 24 0 24 24 0 24" />
+                      <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                      <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fill-rule="nonzero" />
+                  </g>
+              </svg>
+              <!--end::Svg Icon-->
+          </span>
+            <p>
+              DASHBOARD
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/home/profile']" class="nav-link">
+            <span class="svg-icon">
+              <!--begin::Svg Icon | path:/metronic/theme/html/demo7/dist/assets/media/svg/icons/Communication/Shield-user.svg-->
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <rect x="0" y="0" width="24" height="24" />
+                      <path d="M4,4 L11.6314229,2.5691082 C11.8750185,2.52343403 12.1249815,2.52343403 12.3685771,2.5691082 L20,4 L20,13.2830094 C20,16.2173861 18.4883464,18.9447835 16,20.5 L12.5299989,22.6687507 C12.2057287,22.8714196 11.7942713,22.8714196 11.4700011,22.6687507 L8,20.5 C5.51165358,18.9447835 4,16.2173861 4,13.2830094 L4,4 Z" fill="#000000" opacity="0.3" />
+                      <path d="M12,11 C10.8954305,11 10,10.1045695 10,9 C10,7.8954305 10.8954305,7 12,7 C13.1045695,7 14,7.8954305 14,9 C14,10.1045695 13.1045695,11 12,11 Z" fill="#000000" opacity="0.3" />
+                      <path d="M7.00036205,16.4995035 C7.21569918,13.5165724 9.36772908,12 11.9907452,12 C14.6506758,12 16.8360465,13.4332455 16.9988413,16.5 C17.0053266,16.6221713 16.9988413,17 16.5815,17 C14.5228466,17 11.463736,17 7.4041679,17 C7.26484009,17 6.98863236,16.6619875 7.00036205,16.4995035 Z" fill="#000000" opacity="0.3" />
+                  </g>
+              </svg>
+              <!--end::Svg Icon-->
+          </span>
+            <p>
+              PROFILE
+            </p>
+          </a>
+        </li>
+        
+        <li class="nav-item"*ngIf="isAdmin()">
+          
+          <a [routerLink]="['/home/list-user']" class="nav-link " >
+              
+                  <span class="svg-icon">
+                      <!--begin::Svg Icon | path:/metronic/theme/html/demo7/dist/assets/media/svg/icons/Text/Article.svg-->
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                              <rect x="0" y="0" width="24" height="24" />
+                              <rect fill="#000000" x="4" y="5" width="16" height="3" rx="1.5" />
+                              <path d="M5.5,15 L18.5,15 C19.3284271,15 20,15.6715729 20,16.5 C20,17.3284271 19.3284271,18 18.5,18 L5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 Z M5.5,10 L12.5,10 C13.3284271,10 14,10.6715729 14,11.5 C14,12.3284271 13.3284271,13 12.5,13 L5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 Z" fill="#000000" opacity="0.3" />
+                          </g>
+                      </svg>
+                      <!--end::Svg Icon-->
+                  </span>
+             
+              <span> Liste utilisateurs </span>
+          </a>
+        
+        </li>
+        <li class="nav-item"*ngIf="isAdmin()">
+          
+          <a [routerLink]="['/home/ajout']" class="nav-link " >
+              
+                  <span class="svg-icon">
+                      <!--begin::Svg Icon | path:/metronic/theme/html/demo7/dist/assets/media/svg/icons/Text/Article.svg-->
+                      <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                         
+                        <path d="m12 0a12 12 0 1 0 12 12 12.013 12.013 0 0 0 -12-12zm4 13h-3v3a1 1 0 0 1 -2 0v-3h-3a1 1 0 0 1 0-2h3v-3a1 1 0 0 1 2 0v3h3a1 1 0 0 1 0 2z"/>
+                      </svg>
+                      <!--end::Svg Icon-->
+                  </span>
+             
+              <span> Ajouter USER </span>
+          </a>
+        
+        </li>
+    
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>
