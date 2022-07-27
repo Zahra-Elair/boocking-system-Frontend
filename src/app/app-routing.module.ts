@@ -17,7 +17,6 @@ import { TutorialsAddComponent } from './components/tutorials-add/tutorials-add.
 import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
 import { TutorialsDetailsComponent } from './components/tutorials-details/tutorials-details.component';
 import { TutorialsEditComponent } from './components/tutorials-edit/tutorials-edit.component';
-
 const routes: Routes = [
   {
     path: '',
