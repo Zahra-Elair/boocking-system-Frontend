@@ -43,6 +43,9 @@ import { UpdatesComponent } from './pages/updates/updates.component';
 import { ListeUsersComponent } from './pages/liste-users/liste-users.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 
+import { GestionDepartComponent } from './pages/gestion-depart/gestion-depart.component';
+import { AjouterdepartComponent } from './pages/ajouterdepart/ajouterdepart.component';
+
 registerLocaleData(localeEn, 'en-EN');
 
 @NgModule({
@@ -77,6 +80,14 @@ registerLocaleData(localeEn, 'en-EN');
     ListeUsersComponent,
  
     AddUserComponent,
+ 
+
+ 
+    GestionDepartComponent,
+ 
+
+ 
+    AjouterdepartComponent,
    
   ],
   imports: [

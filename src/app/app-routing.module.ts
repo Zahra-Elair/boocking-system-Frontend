@@ -21,6 +21,8 @@ import { TutorialsEditComponent } from './components/tutorials-edit/tutorials-ed
 import { UpdatesComponent } from './pages/updates/updates.component';
 import { ListeUsersComponent } from './pages/liste-users/liste-users.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
+import { GestionDepartComponent } from './pages/gestion-depart/gestion-depart.component';
+import { AjouterdepartComponent } from './pages/ajouterdepart/ajouterdepart.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -37,8 +39,8 @@ const routes: Routes = [
       { path: 'update', component: UpdatesComponent },
       { path: 'list-user', component: ListeUsersComponent },
       { path: 'ajout', component: AddUserComponent },
-      { path: 'examples/project/detail', component: ProjectDetailComponent },
-      { path: 'tutorials/add', component: TutorialsAddComponent },
+      { path: 'gestserv', component: GestionDepartComponent },
+      { path: 'ajouterdepart', component: AjouterdepartComponent },
       { path: 'tutorials', component: TutorialsListComponent },
       { path: 'tutorials/details/:id', component: TutorialsDetailsComponent },
       { path: 'tutorials/edit/:id', component: TutorialsEditComponent },

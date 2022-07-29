@@ -60,6 +60,16 @@
               <hr>
               <div class="row">
                 <input
+            formControlName="confirmpassword"
+            type="password"
+            class="form-control"
+            placeholder="Confirm Password"
+            
+          />
+              </div>
+              <hr>
+              <div class="row">
+                <input
                 formControlName="matriculeRH"
                 type="text"
                 class="form-control"
@@ -78,14 +88,35 @@
               />
               </div>
               <hr>
+              
               <div class="row">
-                <input
-                formControlName="service"
-                type="text"
+                <select
+                formControlName="idDep"
+                id="idDep"
                 class="form-control"
-                placeholder="Service"
                 
-              />
+              >
+              
+              <option   *ngFor="let departement of departements " [ngValue]="departement" >
+                  {{departement.departnom}}
+              </option>
+              </select>
+              </div>
+              <hr>
+              <div class="row">
+                <select
+                formControlName="profile"
+              
+                class="form-control"
+                placeholder="Profile" 
+              >
+              <option   value="ADMIN">
+                  ADMIN
+              </option>
+              <option   value="USER">
+                USER
+            </option>
+              </select>
               </div>
               <hr>
               <div class="row">

@@ -1,3 +1,5 @@
+import { Departement } from "./departement.model";
+
 export class User {
     id: number;
     nom: string;
@@ -8,6 +10,5 @@ export class User {
     sapid :String;
     tel : String;
     matriculeRH : String;
-    service: String; 
-
+    idDep: Departement; 
 }
