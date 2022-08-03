@@ -8,8 +8,9 @@ import { Departement } from 'src/app/models/departement.model';
 @Injectable({
   providedIn: 'root',
 })
+
 export class AppService {
- 
+
 
   constructor(private router: Router,private _http:HttpClient) {}
 
@@ -22,8 +23,8 @@ export class AppService {
     return this._http.post<any>("http://localhost:9090/api/registeruser",user)
 
   }
-  public update(id:any ,user:User):Observable<any>{
-    return this._http.put<any>("http://localhost:9090/api/maj/{id}",user)
+  public update(user:User):Observable<any>{
+    return this._http.put<any>("http://localhost:9090/api/maj",user)
   }
   getAllUsers() {
     return this._http.get(`http://localhost:9090/api/allusers`);
@@ -33,6 +34,18 @@ export class AppService {
   }
   getAlldepart() {
     return this._http.get(`http://localhost:9090/api/alldepart`);
+  }
+  getUserDepart(depart:Departement) {
+    return this._http.get(`http://localhost:9090/api/allusers/${depart}`);
+  }
+  public saveData(key: string, value: string) {
+    localStorage.setItem(key, value);
+  }
+  deleteUser(id:any) {
+    return this._http.delete(`http://localhost:9090/api/delete/${id}`);
+  }
+    deleteDepart(id:any) {
+      return this._http.delete(`http://localhost:9090/api/deletedepart/${id}`);
   }
   logout() {
     localStorage.removeItem("connectedUser")
