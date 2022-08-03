@@ -79,7 +79,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            <a class="btn btn-icon btn-light btn-hover-primary btn-sm"title="supprimer">
+                            <a (click)="deleteDepart(departement.idDep)" class="btn btn-icon btn-light btn-hover-primary btn-sm"title="supprimer">
                                 <span class="svg-icon svg-icon-md svg-icon-danger">
                                     <!--begin::Svg Icon | path:/metronic/theme/html/demo7/dist/assets/media/svg/icons/General/Trash.svg-->
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -109,8 +109,9 @@
             justify-content: center;
             }
           </style>
-          <div style="text-align: center" >
-    </div>
+           <div style="text-align: center" >
+            
+        </div>
     <!--end::Body-->
 </div>
 

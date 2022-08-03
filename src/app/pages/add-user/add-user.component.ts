@@ -42,9 +42,9 @@ export class AddUserComponent implements OnInit {
   register() {
     if (this.addForm.valid) {
       this.appService.register(this.addForm.value).subscribe( data=> {console.log(data)
-        
-        this._router.navigate(["home/list-user"])
         this.toastr.success('success')
+        this._router.navigate(["home/list-user"])
+        
         
       }
       );

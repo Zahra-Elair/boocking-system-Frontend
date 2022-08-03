@@ -37,6 +37,15 @@
               </div>
               <hr>
               <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Departement</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{user.idDep.departnom}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
                 <input
             formControlName="nom"
             type="text"
@@ -56,16 +65,7 @@
               />
               </div>
               <hr>
-              <div class="row">
-                <input
-                formControlName="service"
-                type="text"
-                class="form-control"
-                placeholder="Service"
-                value={{user.service}}
-              />
-              </div>
-              <hr>
+            
               <div class="row">
                 <input
                 formControlName="email"
@@ -93,6 +93,7 @@
                 </div>
               </div>
               <hr>
+             
               
               <button type="submit" class="btn btn-primary btn-block">
                 Modifier

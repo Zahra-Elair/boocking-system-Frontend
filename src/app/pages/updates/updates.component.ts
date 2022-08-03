@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AppService } from 'src/app/utils/services/app.service';
 
 @Component({
@@ -11,24 +12,54 @@ export class UpdatesComponent implements OnInit {
   public updateForm: FormGroup;
   public registerForm: FormGroup;
   user=JSON.parse(localStorage.getItem("connectedUser")!)
-  constructor(  private appService : AppService) { }
+  toastr: any;
+  constructor(  private appService : AppService,private _router:Router,private formBuilder: FormBuilder,)
+   {
+    this.updateForm =  this.formBuilder.group({
+      id:['', Validators.required],
+      nom: ['', Validators.required],
+      email:['',[Validators.required,Validators.email]],
+      password: ['', Validators.required],
+      prenom: ['', Validators.required],
+      sapid:['', Validators.required],
+      matriculeRH: ['', Validators.required],
+      tel: ['', Validators.required],
+      profile:['', Validators.required],
+      idDep:['', Validators.required],
+    });
+    }
   
   ngOnInit(): void {
-    this.registerForm = new FormGroup({
-      nom: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-      prenom: new FormControl('', Validators.required),
-      service: new FormControl('', Validators.required),
-      tel: new FormControl('', Validators.required),
-      
+    this.updateForm.patchValue({
+      'id':this.user.id,
+      'nom': this.user.nom,
+      'email': this.user.email,
+      'password': this.user.password,
+      'prenom': this.user.prenom,
+      'sapid':this.user.sapid,
+      'matriculeRH': this.user.matriculeRH, 
+      'tel': this.user.tel,
+      'profile':this.user.profile,
+      'idDep':this.user.idDep,
     });
 
   }
   updateUser(){
-    this.appService.update(this.user.id ,this.updateForm.value).subscribe((res:any)=>{
+    if(this.updateForm.valid){
+      localStorage.removeItem("connectedUser")
+    
+    this.appService.update(this.updateForm.value).subscribe(res=>{
       console.log('updateeeone user',res)
       
-     });
+      this._router.navigate(["/home"])
+      //this.toastr.success('success');
+      localStorage.setItem("connectedUser",JSON.stringify(res))
+
+      //window.location.reload()
+    });
+    }
+    else 
+    this.toastr.error('erreur');
 
   }
 

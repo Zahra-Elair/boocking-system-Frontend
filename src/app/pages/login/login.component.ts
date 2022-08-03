@@ -3,7 +3,7 @@ import { AppService } from '../../utils/services/app.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,8 +18,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     private toastr: ToastrService,
     private appService: AppService,private _router:Router
   ) {}
-
+  
+  
   ngOnInit() {
+    
     this.renderer.addClass(document.querySelector('app-root'), 'login-page');
     this.loginForm = new FormGroup({
       email: new FormControl(null, Validators.required),
@@ -35,20 +37,41 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.toastr.error("Uername or password is wrong");
           
           console.log("Uername or password is wrong");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Authentification Failed',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
         else if(data.profile=="USER"){
         this._router.navigate(["/home"])
         console.log(data.profile);
         localStorage.setItem("connectedUser",JSON.stringify(data))
         console.log(localStorage.getItem("connectedUser"));
-        this.toastr.success("success");
+      //  this.toastr.success("success");
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Authentification Successufly',
+        showConfirmButton: false,
+        timer: 1500
+      })
       }
         else if(data.profile=="ADMIN"){
           this._router.navigate(["/home"])
           console.log(data.profile);
-          this.toastr.success("success");
+          //this.toastr.success("success");
           localStorage.setItem("connectedUser",JSON.stringify(data))
           console.log(localStorage.getItem("connectedUser"));
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Authentification Successufly',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
         else{
           this.toastr.error("Uername or password is wrong");
