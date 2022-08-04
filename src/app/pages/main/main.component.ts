@@ -50,4 +50,7 @@ export class MainComponent implements OnInit {
       this.sidebarMenuOpened = true;
     }
   }
+  isConnect(){
+    return localStorage.getItem('loginIn')==="true" ? true :false
+  }
 }

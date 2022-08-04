@@ -19,4 +19,7 @@ export class DashboardComponent implements OnInit {
    isUser(){
     return this.user.profile.includes("USER") ? true : false
    }
+   isConnect(){
+    return localStorage.getItem('loginIn')==="true" ? true :false
+  }
 }

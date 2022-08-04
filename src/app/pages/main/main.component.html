@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" *ngIf="isConnect()">
   <app-header (toggleMenuSidebar)="toggleMenuSidebar()"></app-header>
 
   <app-menu-sidebar

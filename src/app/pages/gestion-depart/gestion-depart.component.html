@@ -66,7 +66,7 @@
                     
                         <td class="text-right pr-0">
                            
-                            <a class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3" title="Modifier">
+                            <a (click)="open(content,departement)"class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3" title="Modifier">
                                 <span class="svg-icon svg-icon-md svg-icon-success">
                                     <!--begin::Svg Icon | path:/metronic/theme/html/demo7/dist/assets/media/svg/icons/Communication/Write.svg-->
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -111,6 +111,7 @@
           </style>
            <div style="text-align: center" >
             
+
         </div>
     <!--end::Body-->
 </div>
@@ -122,12 +123,12 @@
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">Modifier Profile </h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
+        <span aria-hidden="true"></span>
       </button>
     </div>
     <div class="modal-body">
      <!--begin::Wizard Form-->
-     <form class="form" [formGroup]=""  id="kt_form">
+     <form class="form" [formGroup]="registeruserForm"   id="kt_form">
         <div class="row justify-content-center">
             <div class="col-xl-9">
                 <!--begin::Wizard Step 1-->
@@ -136,84 +137,29 @@
                     
                     <!--begin::Group-->
                     <div class="form-group row">
-                        <label class="col-xl-3 col-lg-3 col-form-label"> Nom</label>
-                     
-                    </div>
-                    <!--end::Group-->
-                    <!--begin::Group-->
-                    <div class="form-group row">
-                        <label class="col-xl-3 col-lg-3 col-form-label"> prénom</label>
-                       
-
-                    </div>
-                    <!--end::Group-->
-                     <!--begin::Group-->
-                     <div class="form-group row">
-                        <label class="col-xl-3 col-lg-3 col-form-label">Email Address</label>
+                        <label class="col-xl-3 col-lg-3 col-form-label"> departement</label>
                         <div class="col-lg-9 col-xl-9">
-                            <div class="input-group input-group-solid input-group-lg">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="la la-at"></i>
-                                    </span>
-                                </div>
-                                <input type="email" class="form-control form-control-solid form-control-lg" name="email"
-                                 />
-                                
+                            <input class="form-control form-control-solid form-control-lg" name="departnom" type="text"
+                             formControlName="departnom" [ngClass]="{ 'is-invalid': submitted && f.nom.errors }" value="" />
+                             <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                                <div *ngIf="f.nom.errors.required">nom is required</div>
                             </div>
                         </div>
                     </div>
                     <!--end::Group-->
                     
-                     
-                    <!--begin::Group-->
-                    <div class="form-group row">
-                        <label class="col-xl-3 col-lg-3 col-form-label">Contact Phone</label>
-                        <div class="col-lg-9 col-xl-9">
-                          
-        
-                        </div>
-                    </div>
-                    <!--end::Group-->
                    
-                    <!--begin::Group-->
-                    <div class="form-group row">
-                        <label class="col-xl-3 col-lg-3 col-form-label">date_de_naissance</label>
-                      
-                    </div>
-                    <!--end::Group-->
-                     <!--begin::Group-->
-                     <div class="form-group row">
-                        <label class="col-xl-3 col-lg-3 col-form-label">Adresse</label>
-                      
-                    </div>
-         
-                     
-                    </div> 
+                   
+                   
 
-                    <div class="form-group row">
-                        <label class="col-3 col-form-label"> role</label>
-                        <div class="col-lg-9 col-xl-9">
-                            <div class="radio mx-5">
-                                <label class="radio radio-success">
-                                <input type="radio" 
-                                name="role" 
-                                [value]=""
-                                formControlName="role"
-                              
-                                >
-                                <span></span></label>
-                                
-                            </div>
-                        </div>
-                    </div>
+              
                      <!--end::Group-->
                         <!--begin::Group-->
               
                        <!--end::Group-->
 
                    
-                    
+                    </div>
                       
                 </div>
                  <!--end::Group-->
@@ -225,6 +171,6 @@
     <!--end::Wizard Form-->
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark">Update</button>
+      <button type="button" class="btn btn-outline-dark"(click)="updateOneUser();modal.close('Save click')">Update</button>
     </div>
   </ng-template>

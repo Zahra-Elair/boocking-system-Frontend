@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { Departement } from 'src/app/models/departement.model';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -25,6 +26,9 @@ export class AppService {
   }
   public update(user:User):Observable<any>{
     return this._http.put<any>("http://localhost:9090/api/maj",user)
+  }
+  public updatedepart(depart:Departement):Observable<any>{
+    return this._http.put<any>("http://localhost:9090/api/majdepart",depart)
   }
   getAllUsers() {
     return this._http.get(`http://localhost:9090/api/allusers`);
@@ -49,7 +53,13 @@ export class AppService {
   }
   logout() {
     localStorage.removeItem("connectedUser")
+    localStorage.removeItem("loginIn")
     this.router.navigate(['/']);
+    Swal.fire({
+      icon:'success',
+      text:'Logout'
+    })
+  
     
   }
 

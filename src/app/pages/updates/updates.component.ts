@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Departement } from 'src/app/models/departement.model';
 import { AppService } from 'src/app/utils/services/app.service';
 
 @Component({
@@ -9,12 +10,17 @@ import { AppService } from 'src/app/utils/services/app.service';
   styleUrls: ['./updates.component.scss']
 })
 export class UpdatesComponent implements OnInit {
+  
   public updateForm: FormGroup;
+  departements:Array<Departement>=[]
   public registerForm: FormGroup;
   user=JSON.parse(localStorage.getItem("connectedUser")!)
+  
   toastr: any;
   constructor(  private appService : AppService,private _router:Router,private formBuilder: FormBuilder,)
    {
+    
+    this.getAllDepartement()
     this.updateForm =  this.formBuilder.group({
       id:['', Validators.required],
       nom: ['', Validators.required],
@@ -62,5 +68,11 @@ export class UpdatesComponent implements OnInit {
     this.toastr.error('erreur');
 
   }
+  getAllDepartement(){
+    this.appService.getAlldepart().subscribe((res:any)=>{
+      console.log('departement',res)
+      this.departements=res
+      
+  })}
 
 }

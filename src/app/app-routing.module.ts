@@ -25,13 +25,12 @@ import { GestionDepartComponent } from './pages/gestion-depart/gestion-depart.co
 import { AjouterdepartComponent } from './pages/ajouterdepart/ajouterdepart.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: LoginComponent , canActivate: [NonAuthGuard] },
   
   {
     path: 'home',
     component: MainComponent,
-    canActivate: [AuthGuard],
-    canActivateChild: [AuthGuard],
+    
     children: [
       { path: '', component: DashboardComponent },
       { path: 'profile', component: ProfileComponent },
@@ -42,6 +41,8 @@ const routes: Routes = [
       { path: 'gestserv', component: GestionDepartComponent },
       { path: 'ajouterdepart', component: AjouterdepartComponent },
       { path: 'tutorials', component: TutorialsListComponent },
+      { path: 'project', component: ProjectsComponent },
+      { path: 'addproject', component: ProjectAddComponent },
       { path: 'tutorials/details/:id', component: TutorialsDetailsComponent },
       { path: 'tutorials/edit/:id', component: TutorialsEditComponent },
     ],

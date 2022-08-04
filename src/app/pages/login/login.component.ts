@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         this._router.navigate(["/home"])
         console.log(data.profile);
         localStorage.setItem("connectedUser",JSON.stringify(data))
+        localStorage.setItem("loginIn","true")
         console.log(localStorage.getItem("connectedUser"));
       //  this.toastr.success("success");
       Swal.fire({
@@ -64,6 +65,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           console.log(data.profile);
           //this.toastr.success("success");
           localStorage.setItem("connectedUser",JSON.stringify(data))
+          localStorage.setItem("loginIn","true")
           console.log(localStorage.getItem("connectedUser"));
           Swal.fire({
             position: 'top-end',
