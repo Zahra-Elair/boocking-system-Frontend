@@ -1,0 +1,192 @@
+<div class="card card-custom gutter-b">
+    <!--begin::Header-->
+    <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+            <span class="card-label font-weight-bolder text-dark">Liste booking </span>
+            <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
+        </h3>
+        <th class="text-info" style="min-width: 15px">
+        </th>            
+    </div>
+    <!--end::Header-->
+    <!--begin::Body-->
+    <div class="card-body py-0">
+        <!--begin::Table-->
+        <div class="table-responsive">
+            <table *ngIf='sapbookings.length>0; else nodata'  class="table table-head-custom table-vertical-center" id="kt_advance_table_widget_3">
+                <thead>
+                    <tr class="text-left text-uppercase">
+                        <th class="text-info" style="min-width: 15px"></th>
+                        <th class="text-info" style="min-width: 50px">matricule </th>
+                        <th class="text-info" style="min-width: 15px">name</th>
+                        <th class="text-info" style="min-width: 15px">hours</th>
+                        <th class="text-info" style="min-width: 15px">team</th>
+                       
+                        <th class="text-info" style="min-width: 15px">Activite</th>
+                        <th class="text-info" style="min-width: 15px"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr *ngFor="let sapbooking of sapbookings let index=index " >
+                        <td class="pl-0 py-7">
+                            <label >
+                                {{ index+1 }}
+                            </label>
+                        </td>
+                        
+                        <td class="pl-0">
+                            <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg"></a>
+                            <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{sapbooking.persNum}} </span>
+                        </td>
+                        <td class="pl-0">
+                            <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{sapbooking.name}} </span>
+                        </td>
+                        
+                        <td>
+                            <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{sapbooking.hours}}</span>
+                            
+                        </td>
+                        <td>
+                            <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{sapbooking.team}}</span>
+                            
+                        </td>
+                        <td>
+                            <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{sapbooking.act}}</span>
+                            
+                        </td>
+ 
+                    </tr>
+                
+            </tbody>
+            </table>
+
+            <ng-template #nodata>
+                <h1>pas de booking</h1>
+            </ng-template>
+        </div>
+        <!--end::Table-->
+        <style>
+            .my-pagination /deep/ .ngx-pagination .current {
+              background: #4f1c9b;
+            justify-content: center;
+            }
+          </style>
+          <div style="text-align: center" >
+    </div>
+    <!--end::Body-->
+</div>
+
+
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Modifier Profile </h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+     <!--begin::Wizard Form-->
+     <form class="form" [formGroup]=""  id="kt_form">
+        <div class="row justify-content-center">
+            <div class="col-xl-9">
+                <!--begin::Wizard Step 1-->
+                <div class="my-5 step" data-wizard-type="step-content" data-wizard-state="current">
+                    
+                    
+                    <!--begin::Group-->
+                    <div class="form-group row">
+                        <label class="col-xl-3 col-lg-3 col-form-label"> Nom</label>
+                     
+                    </div>
+                    <!--end::Group-->
+                    <!--begin::Group-->
+                    <div class="form-group row">
+                        <label class="col-xl-3 col-lg-3 col-form-label"> prénom</label>
+                       
+
+                    </div>
+                    <!--end::Group-->
+                     <!--begin::Group-->
+                     <div class="form-group row">
+                        <label class="col-xl-3 col-lg-3 col-form-label">Email Address</label>
+                        <div class="col-lg-9 col-xl-9">
+                            <div class="input-group input-group-solid input-group-lg">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="la la-at"></i>
+                                    </span>
+                                </div>
+                                <input type="email" class="form-control form-control-solid form-control-lg" name="email"
+                                 />
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Group-->
+                    
+                     
+                    <!--begin::Group-->
+                    <div class="form-group row">
+                        <label class="col-xl-3 col-lg-3 col-form-label">Contact Phone</label>
+                        <div class="col-lg-9 col-xl-9">
+                          
+        
+                        </div>
+                    </div>
+                    <!--end::Group-->
+                   
+                    <!--begin::Group-->
+                    <div class="form-group row">
+                        <label class="col-xl-3 col-lg-3 col-form-label">date_de_naissance</label>
+                      
+                    </div>
+                    <!--end::Group-->
+                     <!--begin::Group-->
+                     <div class="form-group row">
+                        <label class="col-xl-3 col-lg-3 col-form-label">Adresse</label>
+                      
+                    </div>
+         
+                     
+                    </div> 
+
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label"> role</label>
+                        <div class="col-lg-9 col-xl-9">
+                            <div class="radio mx-5">
+                                <label class="radio radio-success">
+                                <input type="radio" 
+                                name="role" 
+                                [value]=""
+                                formControlName="role"
+                              
+                                >
+                                <span></span></label>
+                                
+                            </div>
+                        </div>
+                    </div>
+                     <!--end::Group-->
+                        <!--begin::Group-->
+              
+                       <!--end::Group-->
+
+                   
+                    
+                      
+                </div>
+                 <!--end::Group-->
+                
+               
+            </div>
+        
+    </form>
+    <!--end::Wizard Form-->
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark">Update</button>
+    </div>
+  </ng-template>

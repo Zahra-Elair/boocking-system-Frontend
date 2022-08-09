@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { Departement } from 'src/app/models/departement.model';
 import Swal from 'sweetalert2';
+import { SAPBooking } from 'src/app/models/sapbooking.models';
 
 @Injectable({
   providedIn: 'root',
@@ -41,6 +42,9 @@ export class AppService {
   }
   getUserDepart(depart:Departement) {
     return this._http.get(`http://localhost:9090/api/allusers/${depart}`);
+  }
+  getsapbooking(sap:number) {
+    return this._http.get(`http://localhost:9090/api/allsap/${sap}`);
   }
   public saveData(key: string, value: string) {
     localStorage.setItem(key, value);

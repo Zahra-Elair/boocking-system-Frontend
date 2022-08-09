@@ -121,7 +121,7 @@
 
 <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Modifier Profile </h4>
+      <h4 class="modal-title" id="modal-basic-title">Modifier Departememt </h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true"></span>
       </button>
@@ -137,7 +137,9 @@
                     
                     <!--begin::Group-->
                     <div class="form-group row">
-                        <label class="col-xl-3 col-lg-3 col-form-label"> departement</label>
+                        <label class="col-xl-3 col-lg-3 col-form-label"> Departement: </label>
+                        </div>
+                        <div>
                         <div class="col-lg-9 col-xl-9">
                             <input class="form-control form-control-solid form-control-lg" name="departnom" type="text"
                              formControlName="departnom" [ngClass]="{ 'is-invalid': submitted && f.nom.errors }" value="" />

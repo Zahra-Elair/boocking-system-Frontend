@@ -33,10 +33,7 @@ import { ProjectEditComponent } from './project/project-edit/project-edit.compon
 import { ProjectDetailComponent } from './project/project-detail/project-detail.component';
 import { SortableDirective } from './project/sortable.directive';
 
-import { TutorialsAddComponent } from './components/tutorials-add/tutorials-add.component';
-import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
-import { TutorialsDetailsComponent } from './components/tutorials-details/tutorials-details.component';
-import { TutorialsEditComponent } from './components/tutorials-edit/tutorials-edit.component';
+
 
 
 import { UpdatesComponent } from './pages/updates/updates.component';
@@ -45,6 +42,7 @@ import { AddUserComponent } from './pages/add-user/add-user.component';
 
 import { GestionDepartComponent } from './pages/gestion-depart/gestion-depart.component';
 import { AjouterdepartComponent } from './pages/ajouterdepart/ajouterdepart.component';
+import { ViewsapComponent } from './pages/viewsap/viewsap.component';
 
 
 registerLocaleData(localeEn, 'en-EN');
@@ -70,10 +68,6 @@ registerLocaleData(localeEn, 'en-EN');
     ProjectAddComponent,
     ProjectEditComponent,
     ProjectDetailComponent,
-    TutorialsAddComponent,
-    TutorialsListComponent,
-    TutorialsDetailsComponent,
-    TutorialsEditComponent,
     SortableDirective,
  
     UpdatesComponent,
@@ -89,6 +83,10 @@ registerLocaleData(localeEn, 'en-EN');
 
  
     AjouterdepartComponent,
+ 
+
+ 
+    ViewsapComponent,
  
 
  
