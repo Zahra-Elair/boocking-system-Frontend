@@ -75,6 +75,21 @@ export class LoginComponent implements OnInit, OnDestroy {
             timer: 1500
           })
         }
+        else if(data.profile=="SUPERADMIN"){
+          this._router.navigate(["/home"])
+          console.log(data.profile);
+          //this.toastr.success("success");
+          localStorage.setItem("connectedUser",JSON.stringify(data))
+          localStorage.setItem("loginIn","true")
+          console.log(localStorage.getItem("connectedUser"));
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Authentification Successufly',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
         else{
           this.toastr.error("Uername or password is wrong");
           console.log("Uername or password is wrong");

@@ -1,19 +1,19 @@
+
 import { ifStmt } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Departement } from 'src/app/models/departement.model';
 import { AppService } from 'src/app/utils/services/app.service';
-
 @Component({
-  selector: 'app-add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.scss']
+  selector: 'app-add-admin',
+  templateUrl: './add-admin.component.html',
+  styleUrls: ['./add-admin.component.scss']
 })
-export class AddUserComponent implements OnInit {
+export class AddAdminComponent implements OnInit {
   departements:Array<Departement>=[]
- 
-  public addForm: FormGroup;
+  public adminaddForm: FormGroup;
+  
   toastr: any;
   usercurent=JSON.parse(localStorage.getItem("connectedUser")!)
   constructor(
@@ -22,29 +22,9 @@ export class AddUserComponent implements OnInit {
     private departservice:AppService,
     private appService: AppService,private _router:Router
   ) { }
-
-  ngOnInit(): void {
-    this.getAllDepartement()
+  ngOnInit(): void { this.getAllDepartement()
     this.renderer.addClass(document.querySelector('app-root'), 'register-page');
-    if(this.isAdmin()){
-    this.addForm = this.formBuilder.group({
-      nom: new FormControl(null, Validators.required),
-      email: new FormControl(null, [Validators.required,Validators.email]),
-      password: new FormControl(null,  [Validators.required, Validators.minLength(6)]),
-      confirmpassword: new FormControl(null,  Validators.required),
-      prenom: new FormControl(null, Validators.required),
-      sapid: new FormControl(null, Validators.required),
-      matriculeRH: new FormControl(null, Validators.required), 
-      tel: new FormControl(null, Validators.required),
-      idDep: this.usercurent.idDep.idDep,
-      profile:'USER',
-    }, {
-      validator: this.MustMatch('password', 'confirmpassword')
-  }
-    );
-}
-else if(this.isSuperAdmin()){
-  this.addForm = this.formBuilder.group({
+  this.adminaddForm = this.formBuilder.group({
     nom: new FormControl(null, Validators.required),
     email: new FormControl(null, [Validators.required,Validators.email]),
     password: new FormControl(null,  [Validators.required, Validators.minLength(6)]),
@@ -59,12 +39,12 @@ else if(this.isSuperAdmin()){
     validator: this.MustMatch('password', 'confirmpassword')
 }
   );
-}
+
 
   }
   register() {
-    if (this.addForm.valid) {
-      this.appService.register(this.addForm.value).subscribe( data=> {console.log(data)
+    if (this.adminaddForm.valid) {
+      this.appService.register(this.adminaddForm.value).subscribe( data=> {console.log(data)
         
         this._router.navigate(["home/list-user"])
         
@@ -72,7 +52,7 @@ else if(this.isSuperAdmin()){
       }
       );
     } else {
-      console.log(this.addForm.value)
+      console.log(this.adminaddForm.value)
       this.toastr.error('erreur');
     }
   }
@@ -109,4 +89,4 @@ else if(this.isSuperAdmin()){
     return this.usercurent.profile.includes("SUPERADMIN") ? true : false
     
    }
-}
+  }

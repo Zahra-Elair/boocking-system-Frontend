@@ -13,7 +13,15 @@ export class ViewsapComponent implements OnInit {
   constructor(private sapservice:AppService) { }
 
   ngOnInit(): void {
+    if(this.isAdmin()){
     this.getsapbooking(this.usercurent.matriculeRH)
+    }
+    if(this.isUser()){
+      this.getsapbooking(this.usercurent.matriculeRH)
+      }
+      if(this.isSuperAdmin()){
+        this.getAllbooking()
+        }
   }
   getsapbooking(mat:number){
     this.sapservice.getsapbooking(mat).subscribe((res:any)=>{
@@ -21,4 +29,21 @@ export class ViewsapComponent implements OnInit {
       this.sapbookings=res
     })
   }
+  getAllbooking(){
+    this.sapservice.getAllbooking().subscribe((res:any)=>{
+      console.log('userrrrrs',res)
+      this.sapbookings=res
+  })}
+    isAdmin(){
+    return this.usercurent.profile.includes("ADMIN") ? true : false
+    
+   }
+   isUser(){ 
+    return this.usercurent.profile.includes("USER") ? true : false
+   }
+  
+   isSuperAdmin(){
+    return this.usercurent.profile.includes("SUPERADMIN") ? true : false
+    
+   }
 }

@@ -30,6 +30,10 @@ export class MenuSidebarComponent implements OnInit, AfterViewInit {
    isUser(){
     return this.user.profile.includes("USER") ? true : false
    }
+   isSuperAdmin(){
+    return this.user.profile.includes("SUPERADMIN") ? true : false
+    
+   }
 
   ngAfterViewInit() {
     this.mainSidebarHeight.emit(this.mainSidebar.nativeElement.offsetHeight);

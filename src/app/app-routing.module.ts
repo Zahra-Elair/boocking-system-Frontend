@@ -18,7 +18,9 @@ import { AddUserComponent } from './pages/add-user/add-user.component';
 import { GestionDepartComponent } from './pages/gestion-depart/gestion-depart.component';
 import { AjouterdepartComponent } from './pages/ajouterdepart/ajouterdepart.component';
 import { ViewsapComponent } from './pages/viewsap/viewsap.component';
-
+import { ViewheurepresenceComponent } from './pages/viewheurepresence/viewheurepresence.component';
+import { AddAdminComponent } from './pages/add-admin/add-admin.component';
+import { ViewcompComponent } from './pages/viewcomp/viewcomp.component';
 const routes: Routes = [
   { path: '', component: LoginComponent , canActivate: [NonAuthGuard] },
   
@@ -33,7 +35,10 @@ const routes: Routes = [
       { path: 'update', component: UpdatesComponent },
       { path: 'list-user', component: ListeUsersComponent },
       { path: 'ajout', component: AddUserComponent },
+      { path: 'ajoutad', component: AddAdminComponent},
       { path: 'viewsap', component: ViewsapComponent },
+      { path: 'viewheurepresence', component: ViewheurepresenceComponent },
+      { path: 'viewheurecompensation', component: ViewcompComponent },
       { path: 'gestserv', component: GestionDepartComponent },
       { path: 'ajouterdepart', component: AjouterdepartComponent },
      

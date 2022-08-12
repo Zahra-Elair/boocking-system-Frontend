@@ -17,8 +17,17 @@ export class ListeUsersComponent implements OnInit {
 
   ngOnInit(): void {
     //this.getAllUsers()
+    if(this.isSuperAdmin()){
+      this.getAllUsers()
+    }
+    else if (this.isAdmin){
     this.getuserdepart(this.usercurent.idDep.idDep)
     console.log(this.usercurent.idDep)
+    }
+    else if (this.isUser){
+      this.getuserdepart(this.usercurent.idDep.idDep)
+      console.log(this.usercurent.idDep)
+      }
   }
   getAllUsers(){
     this.userservice.getAllUsers().subscribe((res:any)=>{
@@ -46,7 +55,7 @@ export class ListeUsersComponent implements OnInit {
       if (result.isConfirmed) {
          this.userservice.deleteUser(id).subscribe(res=>{
            console.log("supprimer user ... ",res)
-           this.getAllUsers()
+           this.getuserdepart(this.usercurent.idDep.idDep)
           Swal.fire(
             'Supprimer!',
             '',
@@ -56,4 +65,15 @@ export class ListeUsersComponent implements OnInit {
       }
     })
   }
+  isAdmin(){
+    return this.usercurent.profile.includes("ADMIN") ? true : false
+    
+   }
+   isUser(){
+    return this.usercurent.profile.includes("USER") ? true : false
+   }
+   isSuperAdmin(){
+    return this.usercurent.profile.includes("SUPERADMIN") ? true : false
+    
+   }
 }

@@ -46,6 +46,25 @@ export class AppService {
   getsapbooking(sap:number) {
     return this._http.get(`http://localhost:9090/api/allsap/${sap}`);
   }
+  getheurepresence(mat:String) {
+    return this._http.get(`http://localhost:9090/api/heurepres/${mat}`);
+  }
+  getheurecomp(mat:String) {
+    return this._http.get(`http://localhost:9090/api/heurecomp/${mat}`);
+  }
+  getselondate(start:any,end:any) {
+    return this._http.get(`http://localhost:9090/api/date/${start}/${end}`);
+  }
+  getAllheure() {
+    return this._http.get(`http://localhost:9090/api/allheurepres`);
+  }
+  getAllbooking() {
+    return this._http.get(` http://localhost:9090/api/allbooking	`);
+  }
+  getAllcompensations() {
+    return this._http.get(`http://localhost:9090/api/allheurecomp`);
+  }
+ 
   public saveData(key: string, value: string) {
     localStorage.setItem(key, value);
   }
