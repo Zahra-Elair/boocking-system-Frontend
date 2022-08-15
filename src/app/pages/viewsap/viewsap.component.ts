@@ -9,6 +9,8 @@ import { AppService } from 'src/app/utils/services/app.service';
 })
 export class ViewsapComponent implements OnInit {
   sapbookings:Array<SAPBooking>=[]
+  start: any =new Date('yyyy-MM-dd');  
+  end : any =new Date('yyyy-MM-dd'); 
   usercurent=JSON.parse(localStorage.getItem("connectedUser")!)
   constructor(private sapservice:AppService) { }
 
@@ -34,6 +36,16 @@ export class ViewsapComponent implements OnInit {
       console.log('userrrrrs',res)
       this.sapbookings=res
   })}
+  getbookselondate(){
+    console.log(this.start)
+      console.log(this.end)
+    this.sapservice.getbookselondate(this.start,this.end).subscribe((res:any)=>{
+      this.getsapbooking(res.idDep)
+      console.log('sappp',res)
+      //this.sapbookings=res
+    })
+ 
+  }
     isAdmin(){
     return this.usercurent.profile.includes("ADMIN") ? true : false
     
@@ -43,7 +55,7 @@ export class ViewsapComponent implements OnInit {
    }
   
    isSuperAdmin(){
-    return this.usercurent.profile.includes("SUPERADMIN") ? true : false
+    return this.usercurent.profile.includes("CHEF") ? true : false
     
    }
 }

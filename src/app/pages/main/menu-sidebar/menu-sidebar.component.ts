@@ -7,6 +7,7 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { AppService } from 'src/app/utils/services/app.service';
+import { isatty } from 'tty';
 
 @Component({
   selector: 'app-menu-sidebar',
@@ -21,18 +22,21 @@ export class MenuSidebarComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     console.log(this.user.profile)
+    console.log(this.isAdmin());
+    console.log(this.isCHEF());
+
+
   }
   
   isAdmin(){
     return this.user.profile.includes("ADMIN") ? true : false
-    
    }
    isUser(){
     return this.user.profile.includes("USER") ? true : false
    }
-   isSuperAdmin(){
-    return this.user.profile.includes("SUPERADMIN") ? true : false
-    
+   isCHEF(){
+   
+    return this.user.profile.includes("CHEF") ? true : false
    }
 
   ngAfterViewInit() {

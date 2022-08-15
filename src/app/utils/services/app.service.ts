@@ -64,6 +64,13 @@ export class AppService {
   getAllcompensations() {
     return this._http.get(`http://localhost:9090/api/allheurecomp`);
   }
+  getbookselondate(start:any,end:any) {
+    return this._http.get(`http://localhost:9090/api/datebook/${start}/${end}`);
+  }
+  getcompselondate(start:any,end:any) {
+    return this._http.get(`http://localhost:9090/api/datecomp/${start}/${end}`);
+  }
+  
  
   public saveData(key: string, value: string) {
     localStorage.setItem(key, value);

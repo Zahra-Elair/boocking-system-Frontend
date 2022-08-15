@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             timer: 1500
           })
         }
-        else if(data.profile=="SUPERADMIN"){
+        else if(data.profile=="CHEF"){
           this._router.navigate(["/home"])
           console.log(data.profile);
           //this.toastr.success("success");

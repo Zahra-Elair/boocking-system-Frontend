@@ -39,15 +39,16 @@ end : any =new Date('yyyy-MM-dd');
     this.sapservice.getheurepresence(mat).subscribe((res:any)=>{
       console.log('sappp',res)
       this.sapheurepresences=res
+
     }) 
   }
   getheureselondate(){
     console.log(this.start)
       console.log(this.end)
     this.sapservice.getselondate(this.start,this.end).subscribe((res:any)=>{
-      
+      this.getheurepres(res.matriculeRH)
       console.log('sappp',res)
-      this.sapheurepresences=res
+      //this.sapheurepresences=res
     })
  
   }
@@ -69,7 +70,7 @@ end : any =new Date('yyyy-MM-dd');
    }
   
    isSuperAdmin(){
-    return this.usercurent.profile.includes("SUPERADMIN") ? true : false
+    return this.usercurent.profile.includes("CHEF") ? true : false
     
    }
    getAllheure(){

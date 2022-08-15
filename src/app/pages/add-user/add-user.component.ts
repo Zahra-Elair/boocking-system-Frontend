@@ -26,7 +26,6 @@ export class AddUserComponent implements OnInit {
   ngOnInit(): void {
     this.getAllDepartement()
     this.renderer.addClass(document.querySelector('app-root'), 'register-page');
-    if(this.isAdmin()){
     this.addForm = this.formBuilder.group({
       nom: new FormControl(null, Validators.required),
       email: new FormControl(null, [Validators.required,Validators.email]),
@@ -42,8 +41,7 @@ export class AddUserComponent implements OnInit {
       validator: this.MustMatch('password', 'confirmpassword')
   }
     );
-}
-else if(this.isSuperAdmin()){
+
   this.addForm = this.formBuilder.group({
     nom: new FormControl(null, Validators.required),
     email: new FormControl(null, [Validators.required,Validators.email]),
@@ -59,7 +57,6 @@ else if(this.isSuperAdmin()){
     validator: this.MustMatch('password', 'confirmpassword')
 }
   );
-}
 
   }
   register() {

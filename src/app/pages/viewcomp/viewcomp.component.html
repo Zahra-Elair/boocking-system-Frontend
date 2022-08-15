@@ -8,6 +8,33 @@
         <th class="text-info" style="min-width: 15px">
         </th>            
     </div>
+    <form class="row">
+   
+        <div style="min-width: 15px"></div>
+        <div class="col-2">
+          <div class="input-group">
+            <input class="form-control" type="date"
+                   name="start" [(ngModel)]="start" >
+           </div>
+        </div>
+        <div class="col-2">
+            <div class="input-group">
+              <input class="form-control" type="date"
+                     name="end" [(ngModel)]="end" >
+              </div>
+          </div>
+          <a (click)="getcompselondate()"  class="btn btn-icon btn-light btn-hover-primary btn-sm"title="supprimer">
+            <span class="svg-icon svg-icon-md svg-icon-danger">
+                <!--begin::Svg Icon | path:/metronic/theme/html/demo7/dist/assets/media/svg/icons/General/Trash.svg-->
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                    <path d="M23.707,22.293l-5.969-5.969a10.016,10.016,0,1,0-1.414,1.414l5.969,5.969a1,1,0,0,0,1.414-1.414ZM10,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,10,18Z"/>
+                </svg>
+                <!--end::Svg Icon-->
+            </span>
+        </a>
+ 
+      </form>
+      
     <!--end::Header-->
     <!--begin::Body-->
     <div class="card-body py-0">

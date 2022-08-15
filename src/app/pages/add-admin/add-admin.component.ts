@@ -86,7 +86,7 @@ export class AddAdminComponent implements OnInit {
    }
    
    isSuperAdmin(){
-    return this.usercurent.profile.includes("SUPERADMIN") ? true : false
+    return this.usercurent.profile.includes("CHEF") ? true : false
     
    }
   }

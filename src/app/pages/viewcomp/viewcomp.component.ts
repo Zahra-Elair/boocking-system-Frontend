@@ -12,7 +12,8 @@ export class ViewcompComponent implements OnInit {
    
   sapheurecompensations:Array<SAPHeurecompensations>=[ ] 
   constructor(private sapservice:AppService) { }
-
+  start: any =new Date('yyyy-MM-dd');  
+  end : any =new Date('yyyy-MM-dd'); 
   ngOnInit(): void {
     if(this.isAdmin()){
       this.getheurecompenstation(this.usercurent.matriculeRH)
@@ -32,6 +33,16 @@ getheurecompenstation(mat:string){
     this.sapheurecompensations=res
   })
 }
+getcompselondate(){
+  console.log(this.start)
+    console.log(this.end)
+  this.sapservice.getcompselondate(this.start,this.end).subscribe((res:any)=>{
+    this.getheurecompenstation(res.idDep)
+    console.log('sappp',res)
+    //this.sapbookings=res
+  })
+
+}
 getAllcompensations(){
   this.sapservice.getAllcompensations().subscribe((res:any)=>{
     console.log('userrrrrs',res)
@@ -46,7 +57,7 @@ isAdmin(){
  }
 
  isSuperAdmin(){
-  return this.usercurent.profile.includes("SUPERADMIN") ? true : false
+  return this.usercurent.profile.includes("CHEF") ? true : false
   
  }
 

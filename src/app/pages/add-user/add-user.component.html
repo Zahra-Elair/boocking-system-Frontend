@@ -5,8 +5,8 @@
           <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item"><a href="home">Home</a></li>
-              <li class="breadcrumb-item"><a href="/home/list-user">Liste users</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Ajouter</li>
+              <li class="breadcrumb-item"><a href="/home/list-user">List user</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Add</li>
             </ol>
           </nav>
         </div>
@@ -91,33 +91,21 @@
                 <hr>
                 
                 <div class="row">
-                  <select
-                  formControlName="idDep"
-                  id="idDep"
-                  class="form-control custom-select "
-                  
-                >
-                
-                <option   *ngFor="let departement of departements " [ngValue]="departement" >
-                    {{departement.departnom}}
-                </option>
-                </select>
+                  <div class="col-sm-3">
+                    <p class="mb-0">Departement</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{usercurent.idDep.departnom}}</p>
+                  </div>
                 </div>
                 <hr>
                 <div class="row">
-                  <select
-                  formControlName="profile"
-                
-                  class="form-control custom-select "
-                  placeholder="Profile" 
-                >
-                <option   value="ADMIN">
-                    ADMIN
-                </option>
-                <option   value="USER">
-                  USER
-              </option>
-                </select>
+                  <div class="col-sm-3">
+                    <p class="mb-0">PROFILE</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">USER</p>
+                  </div>
                 </div>
                 <hr>
                 <div class="row">
@@ -139,7 +127,7 @@
                 <hr>
                 
                 <button type="submit" class="btn btn-primary btn-block">
-                  Ajouter
+                  Add
                 </button>            
           </div>
             </div>

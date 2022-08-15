@@ -73,7 +73,7 @@ export class ListeUsersComponent implements OnInit {
     return this.usercurent.profile.includes("USER") ? true : false
    }
    isSuperAdmin(){
-    return this.usercurent.profile.includes("SUPERADMIN") ? true : false
+    return this.usercurent.profile.includes("CHEF") ? true : false
     
    }
 }
