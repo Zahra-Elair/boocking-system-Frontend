@@ -1,4 +1,5 @@
 import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -8,15 +9,17 @@ import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
 export class MainComponent implements OnInit {
   public sidebarMenuOpened = true;
   @ViewChild('contentWrapper', { static: false }) contentWrapper;
-
+ 
   constructor(private renderer: Renderer2) {}
 
   ngOnInit() {
-    this.renderer.removeClass(document.querySelector('app-root'), 'login-page');
+    this.renderer.removeClass(document.querySelector('app-root'), 'login');
+    
     this.renderer.removeClass(
       document.querySelector('app-root'),
       'register-page'
     );
+    
   }
 
   mainSidebarHeight(height) {

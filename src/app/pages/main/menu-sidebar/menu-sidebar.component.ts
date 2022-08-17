@@ -7,7 +7,6 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { AppService } from 'src/app/utils/services/app.service';
-import { isatty } from 'tty';
 
 @Component({
   selector: 'app-menu-sidebar',
@@ -16,6 +15,7 @@ import { isatty } from 'tty';
 })
 export class MenuSidebarComponent implements OnInit, AfterViewInit {
   @ViewChild('mainSidebar', { static: false }) mainSidebar;
+  
   @Output() mainSidebarHeight: EventEmitter<any> = new EventEmitter<any>();
   user=JSON.parse(localStorage.getItem("connectedUser")!)
   constructor(public appService: AppService) {}

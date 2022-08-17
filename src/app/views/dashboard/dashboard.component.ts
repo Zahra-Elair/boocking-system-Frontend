@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SAPBooking } from 'src/app/models/sapbooking.models';
+import { AppService } from 'src/app/utils/services/app.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  constructor() {}
+  constructor(private sapservice:AppService) {}
   user:any
   profile:any
+  sapbookings:Array<SAPBooking>=[]
+
   ngOnInit() {
   this.user=JSON.parse(localStorage.getItem("connectedUser")!)
   this.profile=this.user.profile
@@ -22,4 +26,9 @@ export class DashboardComponent implements OnInit {
    isConnect(){
     return localStorage.getItem('loginIn')==="true" ? true :false
   }
+  getAllbooking(){
+    this.sapservice.getAllbooking().subscribe((res:any)=>{
+      console.log('userrrrrs',res)
+      this.sapbookings=res
+  })}
 }

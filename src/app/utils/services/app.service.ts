@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -6,9 +6,11 @@ import { User } from 'src/app/models/user.model';
 import { Departement } from 'src/app/models/departement.model';
 import Swal from 'sweetalert2';
 import { SAPBooking } from 'src/app/models/sapbooking.models';
+import { SAPHeurePresence } from 'src/app/models/sapheurepresnece.model';
 
 @Injectable({
   providedIn: 'root',
+  
 })
 
 export class AppService {
@@ -49,11 +51,12 @@ export class AppService {
   getheurepresence(mat:String) {
     return this._http.get(`http://localhost:9090/api/heurepres/${mat}`);
   }
+ 
   getheurecomp(mat:String) {
     return this._http.get(`http://localhost:9090/api/heurecomp/${mat}`);
   }
-  getselondate(start:any,end:any) {
-    return this._http.get(`http://localhost:9090/api/date/${start}/${end}`);
+  getselondate(mat:any,start:any,end:any) {
+    return this._http.get(`http://localhost:9090/api/date/${mat}/${start}/${end}`);
   }
   getAllheure() {
     return this._http.get(`http://localhost:9090/api/allheurepres`);
@@ -70,7 +73,9 @@ export class AppService {
   getcompselondate(start:any,end:any) {
     return this._http.get(`http://localhost:9090/api/datecomp/${start}/${end}`);
   }
-  
+  getsapselonteam(team:any) {
+    return this._http.get(`http://localhost:9090/api/sapteam/${team}`);
+  }
  
   public saveData(key: string, value: string) {
     localStorage.setItem(key, value);

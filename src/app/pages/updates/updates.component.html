@@ -6,7 +6,7 @@
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item"><a href="home">Home</a></li>
               <li class="breadcrumb-item"><a href="/home/profile">Profile</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Modifier</li>
+              <li class="breadcrumb-item active" aria-current="page">update</li>
             </ol>
           </nav>
         </div>
@@ -48,21 +48,21 @@
               <hr>
               <div class="row">
                 <input
-            formControlName="nom"
+            formControlName="prenom"
             type="text"
             class="form-control"
-            placeholder="Nom"
-            value={{user.nom}}
+            placeholder="firs name"
+            value={{user.prenom}}
           />
               </div>
               <hr>
               <div class="row">
                 <input
-                formControlName="prenom"
+                formControlName="nom"
                 type="text"
                 class="form-control"
-                placeholder="Prenom"
-                value={{user.prenom}}
+                placeholder="Last name"
+                value={{user.nom}}
               />
               </div>
               <hr>
@@ -97,7 +97,7 @@
              
               
               <button type="submit" class="btn btn-primary btn-block">
-                Modifier
+                Update
               </button> 
         </div>
           </div>

@@ -16,7 +16,7 @@ export class ViewsapComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.isAdmin()){
-    this.getsapbooking(this.usercurent.matriculeRH)
+    this.getsapByteam(this.usercurent.idDep.departnom)
     }
     if(this.isUser()){
       this.getsapbooking(this.usercurent.matriculeRH)
@@ -40,12 +40,18 @@ export class ViewsapComponent implements OnInit {
     console.log(this.start)
       console.log(this.end)
     this.sapservice.getbookselondate(this.start,this.end).subscribe((res:any)=>{
-      this.getsapbooking(res.idDep)
+      //this.getsapbooking(res.idDep)
       console.log('sappp',res)
-      //this.sapbookings=res
+      this.sapbookings=res
     })
- 
   }
+ getsapByteam(team:any){
+  this.sapservice.getsapselonteam(team).subscribe((res:any)=>{
+    console.log('sappp',res)
+    this.sapbookings=res
+  })
+ }
+  
     isAdmin(){
     return this.usercurent.profile.includes("ADMIN") ? true : false
     

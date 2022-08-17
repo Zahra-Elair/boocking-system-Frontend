@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       (data:any) => {console.log(data)
         if(data == null) {
           this.toastr.error("Uername or password is wrong");
-          
+          localStorage.setItem("loginIn","false")
           console.log("Uername or password is wrong");
           Swal.fire({
             position: 'top-end',
@@ -92,6 +92,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         }
         else{
           this.toastr.error("Uername or password is wrong");
+          localStorage.setItem("loginIn","false")
           console.log("Uername or password is wrong");
         }
       }

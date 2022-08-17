@@ -2,7 +2,8 @@
     <!--begin::Header-->
     <div class="card-header border-0 py-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label font-weight-bolder text-dark">List heure de presence </span>
+            <span class="card-label font-weight-bolder text-dark">Attendance time list
+            </span>
             <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
         </h3>
         <th class="text-info" style="min-width: 15px">
@@ -15,12 +16,14 @@
         <div style="min-width: 15px"></div>
         <div class="col-2">
           <div class="input-group">
-            <input class="form-control" type="date"
+            <label class="mr-3 mb-0 d-none d-md-block">De:</label>
+            <input class="form-control" type="date" 
                    name="start" [(ngModel)]="start" >
            </div>
         </div>
         <div class="col-2">
             <div class="input-group">
+                <label class="mr-3 mb-0 d-none d-md-block">A:</label>
               <input class="form-control" type="date"
                      name="end" [(ngModel)]="end" >
               </div>
@@ -34,33 +37,22 @@
                 <!--end::Svg Icon-->
             </span>
         </a>
+        
   <div class="col-2">
             <div class="input-group">
                 </div></div>
-                <div class="col-2">
-                    <div class="input-group">
-                        </div></div>
+                
+            <div class="col-md-4 my-2 my-md-0" *ngIf="isAdmin()">
+                <div class="d-flex align-items-center">
+                    <label class="mr-3 mb-0 d-none d-md-block">Type:</label>
+                    <select (change)="selectheurepres($event)" class="form-control" id="mat" >
                         
-                        <div class="col-1">
-                            <div class="input-group">
-                                </div></div>  
-        <div class="col-2" *ngIf="isAdmin()">
-            <div class="input-group">
-            <select
-            placeholder="select user"
-            id="matriculeRH"
-            class="form-control custom-select " 
-            (click)="getheurepres($event.matriculeRH)" 
-          >
-          <option *ngFor="let user of users "   value='user.matriculeRH' >
-              {{user.prenom}} {{user.nom}} 
-   
-          </option>
-         
-          </select>
-          
-    </div>
-</div>
+                        <option *ngFor="let user of users" [value]="user.matriculeRH">{{ user.prenom }} {{ user.nom }}</option>
+
+                    </select>
+                </div>
+            </div>
+
       </form>
       
     <!--end::Header-->
@@ -119,7 +111,8 @@
             </table>
 
             <ng-template #nodata>
-                <h1>pas de presence</h1>
+                <h1>no attendance
+                </h1>
             </ng-template>
         </div>
         <!--end::Table-->
@@ -130,6 +123,8 @@
             }
           </style>
           <div style="text-align: center" >
+       
+             
     </div>
     <!--end::Body-->
 </div>
