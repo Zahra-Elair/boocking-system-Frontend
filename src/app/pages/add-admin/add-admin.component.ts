@@ -78,7 +78,7 @@ export class AddAdminComponent implements OnInit {
     this.departservice.getAlldepart().subscribe((res:any)=>{
       console.log('departement',res)
       this.departements=res
-      
+       
   })}
   isAdmin(){
     return this.usercurent.profile.includes("ADMIN") ? true : false

@@ -45,7 +45,7 @@ export class AppService {
   getUserDepart(depart:Departement) {
     return this._http.get(`http://localhost:9090/api/allusers/${depart}`);
   }
-  getsapbooking(sap:number) {
+  getsapbooking(sap:string) {
     return this._http.get(`http://localhost:9090/api/allsap/${sap}`);
   }
   getheurepresence(mat:String) {
@@ -67,11 +67,11 @@ export class AppService {
   getAllcompensations() {
     return this._http.get(`http://localhost:9090/api/allheurecomp`);
   }
-  getbookselondate(start:any,end:any) {
-    return this._http.get(`http://localhost:9090/api/datebook/${start}/${end}`);
+  getbookselondate(mat:any,start:any,end:any) {
+    return this._http.get(`http://localhost:9090/api/datebook/${mat}/${start}/${end}`);
   }
-  getcompselondate(start:any,end:any) {
-    return this._http.get(`http://localhost:9090/api/datecomp/${start}/${end}`);
+  getcompselondate(mat:any,start:any,end:any) {
+    return this._http.get(`http://localhost:9090/api/datecomp/${mat}/${start}/${end}`);
   }
   getsapselonteam(team:any) {
     return this._http.get(`http://localhost:9090/api/sapteam/${team}`);

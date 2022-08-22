@@ -34,6 +34,7 @@ end : any =new Date('yyyy-MM-dd');
   }
   if(this.isSuperAdmin()){
     this.getAllheure()
+    this.getAllUsers()
   }   
   }   
   selectheurepres(event:any){
@@ -72,6 +73,13 @@ end : any =new Date('yyyy-MM-dd');
     }) 
  
   }
+  getAllUsers(){
+    this.sapservice.getAllUsers().subscribe((res:any)=>{
+      console.log('userrrrrs',res)
+      this.users=res
+      
+  
+  })}
   getuserdepart(depart:Departement){
     
     this.sapservice.getUserDepart(depart).subscribe((res:any)=>{

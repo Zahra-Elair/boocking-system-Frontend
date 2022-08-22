@@ -20,7 +20,7 @@ export class MenuSidebarComponent implements OnInit, AfterViewInit {
   user=JSON.parse(localStorage.getItem("connectedUser")!)
   constructor(public appService: AppService) {}
 
-  ngOnInit() {
+  ngOnInit() { 
     console.log(this.user.profile)
     console.log(this.isAdmin());
     console.log(this.isCHEF());
