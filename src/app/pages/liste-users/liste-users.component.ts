@@ -65,6 +65,29 @@ export class ListeUsersComponent implements OnInit {
       }
     })
   }
+  deleteAdmin(id:any){
+    Swal.fire({
+      title: 'Confirmer',
+      text: "",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'OUI'
+    }).then((result) => {
+      if (result.isConfirmed) {
+         this.userservice.deleteUser(id).subscribe(res=>{
+           console.log("supprimer user ... ",res)
+           this.getAllUsers()
+          Swal.fire(
+            'Supprimer!',
+            '',
+            'success'
+          )
+         })
+      }
+    })
+  }
   isAdmin(){
     return this.usercurent.profile.includes("ADMIN") ? true : false
     
