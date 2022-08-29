@@ -3,7 +3,7 @@ import { Time } from "@angular/common";
 export class SAPBooking {
 	id:number;
 	
-	persNum:number;
+	persNum:string;
 
 	name:string;
 
